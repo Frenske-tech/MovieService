@@ -37,6 +37,6 @@ jobs:
         image: frenske12/movieservice
         tags: latest
         registry: docker.io
-        dockerfile: ./springboot-backend/Dockerfile
+        dockerfile: ./Dockerfile
         username: ${{ secrets.DOCKER_HUB_USERNAME }}
         password: ${{ secrets.DOCKER_HUB_PASSWORD }}
