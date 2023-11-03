@@ -41,14 +41,7 @@ jobs:
         username: ${{ secrets.DOCKER_HUB_USERNAME }}
         password: ${{ secrets.DOCKER_HUB_PASSWORD }}
 
-        name: SonarCloud analysis
-
-        on:
-          push:
-            branches: [ "master" ]
-          pull_request:
-            branches: [ "master" ]
-          workflow_dispatch:
+    - name: SonarCloud analysis
 
         permissions:
           pull-requests: read # allows SonarCloud to decorate PRs with analysis results
