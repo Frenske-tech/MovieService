@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/movie")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin("*")
 public class MovieController {
 
     @Autowired
@@ -31,6 +31,7 @@ public class MovieController {
     public void deleteReview(@PathVariable int id){
         movieService.deleteMovie(id);
     }
+
 
 }
 
