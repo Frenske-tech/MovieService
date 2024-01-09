@@ -1,0 +1,33 @@
+version: '3.8'
+services:
+  web:
+    build: ../Gateway
+    ports:
+      - "8090:8090"
+  rabbitmq:
+    container_name: rabbitmq
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+  sender:
+    build: /
+    container_name: movieservice
+    ports:
+        - "8080:8080"
+    volumes:
+      - /movieCrud:/app
+    depends_on:
+      - rabbitmq
+
+  receiver:
+    build: ../Reviews
+    container_name: reviewservice
+    ports:
+      - "8083:8083"
+    volumes:
+      - ../Reviews:/app
+    depends_on:
+      - rabbitmq
+      - sender

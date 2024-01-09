@@ -14,13 +14,13 @@ public class Movie {
     private int id;
     private String name;
     private String description;
-    private int totalReviewScore;
+//    private int totalReviewScore;
 
-    public Movie(int id, String name, String description, int totalReviewScore) {
+    public Movie(int id, String name, String description) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.totalReviewScore = totalReviewScore;
+//        this.totalReviewScore = totalReviewScore;
     }
 
     public Movie() {
@@ -51,11 +51,11 @@ public class Movie {
         this.description = description;
     }
 
-    public int getTotalReviewScore() {
-        return totalReviewScore;
-    }
-
-    public void setTotalReviewScore(int totalReviewScore) {
-        this.totalReviewScore = totalReviewScore;
-    }
+//    public int getTotalReviewScore() {
+//        return totalReviewScore;
+//    }
+//
+//    public void setTotalReviewScore(int totalReviewScore) {
+//        this.totalReviewScore = totalReviewScore;
+//    }
 }
