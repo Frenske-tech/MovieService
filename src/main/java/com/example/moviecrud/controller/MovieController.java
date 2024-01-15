@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/movie")
-@CrossOrigin("*")
+//@CrossOrigin("*")
 public class MovieController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(RabbitMQJsonProducer.class);
