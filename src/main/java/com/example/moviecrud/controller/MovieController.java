@@ -28,8 +28,8 @@ public class MovieController {
 
     @PostMapping("/add")
     public String add(@RequestBody Movie movie){
-//        jsonProducer.sendJsonMessage(movie);
-//        ResponseEntity.ok("Json message sent to rabbitmq");
+        jsonProducer.sendJsonMessage(movie);
+        ResponseEntity.ok("Json message sent to rabbitmq");
         movieService.saveMovie(movie);
         return "Movie added"+ movie.getName();
 
