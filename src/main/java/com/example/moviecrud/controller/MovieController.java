@@ -2,6 +2,7 @@ package com.example.moviecrud.controller;
 
 import com.example.moviecrud.model.Movie;
 import com.example.moviecrud.producer.RabbitMQJsonProducer;
+import com.example.moviecrud.producer.RabbitMQProducer;
 import com.example.moviecrud.service.MovieService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,9 +19,11 @@ public class MovieController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(RabbitMQJsonProducer.class);
     private RabbitMQJsonProducer jsonProducer;
+    private RabbitMQProducer producer;
 
-    public MovieController(RabbitMQJsonProducer jsonProducer) {
+    public MovieController(RabbitMQJsonProducer jsonProducer, RabbitMQProducer producer) {
         this.jsonProducer = jsonProducer;
+        this.producer = producer;
     }
 
     @Autowired
@@ -41,7 +44,8 @@ public class MovieController {
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value ="/{id}")
-    public void deleteReview(@PathVariable int id){
+    public void deleteMovie(@PathVariable int id){
+        producer.sendMessage(String.valueOf(id));
         movieService.deleteMovie(id);
     }
 
